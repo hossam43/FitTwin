@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>APEX GYM — 3D Avatar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/reset.css" />
+  <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="../css/typography.css" />
+  <link rel="stylesheet" href="../css/layout.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/animations.css" />
+  <link rel="stylesheet" href="../css/pages/avatar.css" />
+</head>
+<body>
+
+  <nav id="navbar" class="navbar">
+    <a href="../index.html" class="navbar__logo">APEX<span>GYM</span></a>
+    <ul class="navbar__links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="coaches.html">Coaches</a></li>
+      <li><a href="plan.html">My Plan</a></li>
+      <li><a href="avatar.html" class="active">3D Avatar</a></li>
+      <li><a href="progress.html">Progress</a></li>
+    </ul>
+    <a href="plan.html" class="btn btn--primary">Get Started</a>
+  </nav>
+
+  <main class="page-shell">
+    <div class="avatar-layout">
+
+      <!-- Left: Controls -->
+      <aside class="avatar-controls" id="avatarControls">
+        <h2 class="avatar-controls__title">Customize Avatar</h2>
+
+        <!-- Gender -->
+        <div class="form-group">
+          <label class="form-label">Base Model</label>
+          <div class="gender-toggle" id="genderToggle">
+            <button class="gender-btn active" data-gender="male">♂ Male</button>
+            <button class="gender-btn" data-gender="female">♀ Female</button>
+          </div>
+        </div>
+
+        <!-- Body Fat -->
+        <div class="form-group">
+          <label class="form-label">Body Fat % — <span id="avFatVal">20</span>%</label>
+          <input class="form-range" type="range" id="avFat" min="5" max="50" value="20" />
+        </div>
+
+        <!-- Muscle Mass -->
+        <div class="form-group">
+          <label class="form-label">Muscle Definition — <span id="avMuscleVal">50</span></label>
+          <input class="form-range" type="range" id="avMuscle" min="0" max="100" value="50" />
+        </div>
+
+        <!-- Upper / Lower Split -->
+        <div class="form-group">
+          <label class="form-label">Upper Body Mass — <span id="avUpperVal">50</span></label>
+          <input class="form-range" type="range" id="avUpper" min="0" max="100" value="50" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Lower Body Mass — <span id="avLowerVal">50</span></label>
+          <input class="form-range" type="range" id="avLower" min="0" max="100" value="50" />
+        </div>
+
+        <!-- Skin tone -->
+        <div class="form-group">
+          <label class="form-label">Skin Tone</label>
+          <div class="skin-tones" id="skinTones">
+            <button class="skin-btn active" data-tone="#f5c9a0" style="background:#f5c9a0"></button>
+            <button class="skin-btn" data-tone="#d4956a" style="background:#d4956a"></button>
+            <button class="skin-btn" data-tone="#a0622a" style="background:#a0622a"></button>
+            <button class="skin-btn" data-tone="#5c3317" style="background:#5c3317"></button>
+          </div>
+        </div>
+
+        <button class="btn btn--primary" id="saveAvatarBtn" style="width:100%;margin-top:var(--space-4)">
+          Save Snapshot
+        </button>
+      </aside>
+
+      <!-- Center: Three.js Canvas -->
+      <div class="avatar-viewport" id="avatarViewport">
+        <div id="avatarCanvas"></div>
+        <div class="avatar-hint">Click & drag to rotate · Scroll to zoom</div>
+      </div>
+
+      <!-- Right: Snapshots -->
+      <aside class="avatar-history" id="avatarHistory">
+        <h2 class="avatar-controls__title">Progress Snapshots</h2>
+        <div class="snapshots-list" id="snapshotsList">
+          <p class="empty-state">No snapshots yet. Save your first avatar state!</p>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="footer__logo">APEX<span>GYM</span></p>
+      <p class="footer__copy">© 2026 ApexGym. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="../js/utils/helpers.js"></script>
+  <script src="../js/core/state.js"></script>
+  <script src="../js/components/navbar.js"></script>
+  <script src="../js/components/avatar3d.js"></script>
+  <script src="../js/pages/avatar.js"></script>
+</body>
+</html>

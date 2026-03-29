@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>APEX GYM — Elite Coaching</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- Core Styles -->
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/typography.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/pages/home.css" />
+</head>
+<body>
+
+  <!-- ───────────── NAVBAR ───────────── -->
+  <nav id="navbar" class="navbar">
+    <div class="navbar__logo">APEX<span>GYM</span></div>
+    <ul class="navbar__links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="pages/coaches.html">Coaches</a></li>
+      <li><a href="pages/plan.html">My Plan</a></li>
+      <li><a href="pages/avatar.html">3D Avatar</a></li>
+      <li><a href="pages/progress.html">Progress</a></li>
+    </ul>
+    <a href="pages/plan.html" class="btn btn--primary">Get Started</a>
+    <button class="navbar__burger" id="navBurger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ───────────── HERO ───────────── -->
+  <section class="hero" id="hero">
+    <div class="hero__content">
+      <p class="hero__eyebrow">Elite Gym Coaching Platform</p>
+      <h1 class="hero__title">Train Smart.<br/>Evolve Fast.</h1>
+      <p class="hero__sub">Choose your coach, build your plan, and watch your 3D avatar transform as you hit real goals.</p>
+      <div class="hero__cta">
+        <a href="pages/plan.html" class="btn btn--primary btn--lg">Build My Plan</a>
+        <a href="pages/coaches.html" class="btn btn--ghost btn--lg">Meet Coaches</a>
+      </div>
+    </div>
+    <div class="hero__visual" id="heroVisual">
+      <!-- Three.js canvas injected here by JS -->
+    </div>
+  </section>
+
+  <!-- ───────────── FEATURES ───────────── -->
+  <section class="features" id="features">
+    <div class="container">
+      <h2 class="section-title">Everything You Need</h2>
+      <div class="features__grid">
+        <div class="feature-card" data-animate>
+          <div class="feature-card__icon">🏋️</div>
+          <h3>Elite Coaches</h3>
+          <p>Hand-picked specialists across weightlifting, MMA, gymnastics, bodybuilding and more.</p>
+        </div>
+        <div class="feature-card" data-animate>
+          <div class="feature-card__icon">📋</div>
+          <h3>Personalized Plans</h3>
+          <p>Answer a few questions and get a fully tailored workout + nutrition plan instantly.</p>
+        </div>
+        <div class="feature-card" data-animate>
+          <div class="feature-card__icon">🧍</div>
+          <h3>3D Avatar</h3>
+          <p>See your body composition in 3D. Update measurements and watch your twin evolve.</p>
+        </div>
+        <div class="feature-card" data-animate>
+          <div class="feature-card__icon">🏆</div>
+          <h3>Gamification</h3>
+          <p>Earn badges, crush weekly challenges, and climb the leaderboard with your gym mates.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── FOOTER ───────────── -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer__logo">APEX<span>GYM</span></p>
+      <p class="footer__copy">© 2026 ApexGym. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Three.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- Core JS -->
+  <script src="js/utils/helpers.js"></script>
+  <script src="js/core/router.js"></script>
+  <script src="js/core/state.js"></script>
+  <script src="js/components/navbar.js"></script>
+  <script src="js/pages/home.js"></script>
+  <script src="js/core/app.js"></script>
+</body>
+</html>

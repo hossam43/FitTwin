@@ -1,0 +1,38 @@
+/* ── Hero ── */
+.hero__eyebrow {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-4);
+  display: block;
+}
+
+.hero__title {
+  font-size: var(--text-hero);
+  color: var(--color-text-primary);
+  line-height: 0.95;
+  margin-bottom: var(--space-6);
+  text-shadow: 0 0 80px rgba(232,255,0,0.08);
+}
+
+.hero__sub {
+  font-size: var(--text-md);
+  max-width: 480px;
+  margin-bottom: var(--space-8);
+  color: var(--color-text-secondary);
+}
+
+.hero__cta {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+/* ── Features section ── */
+.features {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}

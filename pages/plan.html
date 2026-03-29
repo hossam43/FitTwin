@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>APEX GYM — My Plan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/reset.css" />
+  <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="../css/typography.css" />
+  <link rel="stylesheet" href="../css/layout.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/animations.css" />
+  <link rel="stylesheet" href="../css/pages/plan.css" />
+</head>
+<body>
+
+  <nav id="navbar" class="navbar">
+    <a href="../index.html" class="navbar__logo">APEX<span>GYM</span></a>
+    <ul class="navbar__links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="coaches.html">Coaches</a></li>
+      <li><a href="plan.html" class="active">My Plan</a></li>
+      <li><a href="avatar.html">3D Avatar</a></li>
+      <li><a href="progress.html">Progress</a></li>
+    </ul>
+    <a href="plan.html" class="btn btn--primary">Get Started</a>
+  </nav>
+
+  <main class="page-shell">
+
+    <div class="page-header">
+      <p class="eyebrow">Step-By-Step</p>
+      <h1 class="section-title">Build Your <span>Plan</span></h1>
+    </div>
+
+    <div class="container">
+
+      <!-- Step Indicator -->
+      <div class="steps" id="stepIndicator">
+        <!-- Rendered by plan.js -->
+      </div>
+
+      <!-- Multi-Step Form -->
+      <div class="plan-form-wrap" id="planFormWrap">
+
+        <!-- Step 1: Basic Info -->
+        <div class="plan-step" data-step="1" id="step1">
+          <h2 class="plan-step__title">Basic Info</h2>
+          <div class="plan-grid-2">
+            <div class="form-group">
+              <label class="form-label" for="age">Age</label>
+              <input class="form-input" type="number" id="age" name="age" min="14" max="90" placeholder="e.g. 26" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="gender">Gender</label>
+              <select class="form-select" id="gender" name="gender">
+                <option value="">Select…</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="weight">Weight (kg)</label>
+              <input class="form-input" type="number" id="weight" name="weight" placeholder="e.g. 80" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="height">Height (cm)</label>
+              <input class="form-input" type="number" id="height" name="height" placeholder="e.g. 178" />
+            </div>
+          </div>
+          <div class="plan-step__nav">
+            <span></span>
+            <button class="btn btn--primary" id="step1Next">Next →</button>
+          </div>
+        </div>
+
+        <!-- Step 2: Goals & Lifestyle -->
+        <div class="plan-step hidden" data-step="2" id="step2">
+          <h2 class="plan-step__title">Goals & Lifestyle</h2>
+
+          <div class="form-group">
+            <label class="form-label">Primary Goal</label>
+            <div class="goal-picker" id="goalPicker">
+              <button class="goal-btn" data-goal="weight-loss">🔥 Weight Loss</button>
+              <button class="goal-btn" data-goal="muscle-gain">💪 Muscle Gain</button>
+              <button class="goal-btn" data-goal="flexibility">🧘 Flexibility</button>
+              <button class="goal-btn" data-goal="endurance">🏃 Endurance</button>
+            </div>
+          </div>
+
+          <div class="plan-grid-2">
+            <div class="form-group">
+              <label class="form-label" for="activity">Daily Activity Level</label>
+              <select class="form-select" id="activity" name="activity">
+                <option value="">Select…</option>
+                <option value="sedentary">Sedentary (desk job)</option>
+                <option value="light">Lightly Active</option>
+                <option value="moderate">Moderately Active</option>
+                <option value="very">Very Active</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="frequency">Workouts per Week</label>
+              <select class="form-select" id="frequency" name="frequency">
+                <option value="">Select…</option>
+                <option value="2">2 days</option>
+                <option value="3">3 days</option>
+                <option value="4">4 days</option>
+                <option value="5">5+ days</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="dietRestrictions">Diet Restrictions</label>
+            <input class="form-input" type="text" id="dietRestrictions" placeholder="e.g. vegetarian, lactose intolerant…" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="injuries">Injuries / Limitations</label>
+            <textarea class="form-textarea" id="injuries" rows="3" placeholder="Describe any injuries we should know about…"></textarea>
+          </div>
+
+          <div class="plan-step__nav">
+            <button class="btn btn--ghost" id="step2Back">← Back</button>
+            <button class="btn btn--primary" id="step2Next">Next →</button>
+          </div>
+        </div>
+
+        <!-- Step 3: Body Composition (Advanced) -->
+        <div class="plan-step hidden" data-step="3" id="step3">
+          <h2 class="plan-step__title">Body Composition <span class="tag tag--accent">Optional</span></h2>
+          <p class="plan-step__desc">Fine-tune your 3D avatar with detailed measurements.</p>
+
+          <div class="form-group">
+            <label class="form-label" for="fatPct">Body Fat % — <span id="fatPctVal">20</span>%</label>
+            <input class="form-range" type="range" id="fatPct" name="fatPct" min="5" max="50" value="20" />
+            <div class="range-display"><span>5%</span><span>50%</span></div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="muscleMass">Muscle Mass — <span id="muscleMassVal">50</span>%</label>
+            <input class="form-range" type="range" id="muscleMass" name="muscleMass" min="20" max="80" value="50" />
+            <div class="range-display"><span>Low</span><span>High</span></div>
+          </div>
+
+          <div class="plan-grid-2">
+            <div class="form-group">
+              <label class="form-label" for="upperBodyFat">Upper Body Fat — <span id="upperBodyFatVal">50</span>%</label>
+              <input class="form-range" type="range" id="upperBodyFat" min="0" max="100" value="50" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="lowerBodyFat">Lower Body Fat — <span id="lowerBodyFatVal">50</span>%</label>
+              <input class="form-range" type="range" id="lowerBodyFat" min="0" max="100" value="50" />
+            </div>
+          </div>
+
+          <div class="plan-step__nav">
+            <button class="btn btn--ghost" id="step3Back">← Back</button>
+            <button class="btn btn--primary" id="step3Submit">Generate My Plan ✦</button>
+          </div>
+        </div>
+
+        <!-- Result Panel -->
+        <div class="plan-step hidden" data-step="4" id="stepResult">
+          <div id="planResult"></div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="footer__logo">APEX<span>GYM</span></p>
+      <p class="footer__copy">© 2026 ApexGym. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../js/utils/helpers.js"></script>
+  <script src="../js/core/state.js"></script>
+  <script src="../js/components/navbar.js"></script>
+  <script src="../js/pages/plan.js"></script>
+</body>
+</html>

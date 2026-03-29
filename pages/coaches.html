@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>APEX GYM — Coaches</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/reset.css" />
+  <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="../css/typography.css" />
+  <link rel="stylesheet" href="../css/layout.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/animations.css" />
+  <link rel="stylesheet" href="../css/pages/coaches.css" />
+</head>
+<body>
+
+  <nav id="navbar" class="navbar">
+    <a href="../index.html" class="navbar__logo">APEX<span>GYM</span></a>
+    <ul class="navbar__links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="coaches.html" class="active">Coaches</a></li>
+      <li><a href="plan.html">My Plan</a></li>
+      <li><a href="avatar.html">3D Avatar</a></li>
+      <li><a href="progress.html">Progress</a></li>
+    </ul>
+    <a href="plan.html" class="btn btn--primary">Get Started</a>
+  </nav>
+
+  <main class="page-shell">
+
+    <div class="page-header">
+      <p class="eyebrow">Find Your</p>
+      <h1 class="section-title">Elite <span>Coaches</span></h1>
+      <p>Filter by specialty and pick the expert that matches your goals.</p>
+    </div>
+
+    <div class="container">
+
+      <!-- Filter Tabs -->
+      <div class="filter-tabs" id="filterTabs">
+        <button class="filter-tab active" data-filter="all">All</button>
+        <button class="filter-tab" data-filter="weightlifting">Weightlifting</button>
+        <button class="filter-tab" data-filter="bodybuilding">Bodybuilding</button>
+        <button class="filter-tab" data-filter="martial-arts">Martial Arts</button>
+        <button class="filter-tab" data-filter="gymnastics">Gymnastics</button>
+        <button class="filter-tab" data-filter="cardio">Cardio & HIIT</button>
+      </div>
+
+      <!-- Coach Grid -->
+      <div class="coaches-grid" id="coachesGrid">
+        <!-- Populated by coaches.js -->
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Coach Detail Modal -->
+  <div class="modal-overlay" id="coachModal">
+    <div class="modal" id="coachModalContent">
+      <!-- Populated dynamically -->
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="footer__logo">APEX<span>GYM</span></p>
+      <p class="footer__copy">© 2026 ApexGym. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../js/utils/helpers.js"></script>
+  <script src="../js/core/state.js"></script>
+  <script src="../js/data/coaches.data.js"></script>
+  <script src="../js/components/navbar.js"></script>
+  <script src="../js/components/coachCard.js"></script>
+  <script src="../js/pages/coaches.js"></script>
+</body>
+</html>
