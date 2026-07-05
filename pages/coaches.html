@@ -1,80 +1,277 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>APEX GYM — Coaches</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../css/reset.css" />
-  <link rel="stylesheet" href="../css/variables.css" />
-  <link rel="stylesheet" href="../css/typography.css" />
-  <link rel="stylesheet" href="../css/layout.css" />
-  <link rel="stylesheet" href="../css/components.css" />
-  <link rel="stylesheet" href="../css/animations.css" />
-  <link rel="stylesheet" href="../css/pages/coaches.css" />
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>APEX GYM — Personal Coaching</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/pages/coaches.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- ══════════════════ NAVBAR ══════════════════ -->
+    <nav class="navbar" id="navbar">
+      <a href="../index.html" class="navbar__logo">APEX<span>GYM</span></a>
+      <ul class="navbar__links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="coaches.html" class="active">Coaches</a></li>
+        <li><a href="plan.html">My Plan</a></li>
+        <li><a href="avatar.html">3D Avatar</a></li>
+        <li><a href="progress.html">Progress</a></li>
+      </ul>
+      <a href="plan.html" class="btn-nav">Get Started</a>
+    </nav>
 
-  <nav id="navbar" class="navbar">
-    <a href="../index.html" class="navbar__logo">APEX<span>GYM</span></a>
-    <ul class="navbar__links">
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="coaches.html" class="active">Coaches</a></li>
-      <li><a href="plan.html">My Plan</a></li>
-      <li><a href="avatar.html">3D Avatar</a></li>
-      <li><a href="progress.html">Progress</a></li>
-    </ul>
-    <a href="plan.html" class="btn btn--primary">Get Started</a>
-  </nav>
-
-  <main class="page-shell">
-
-    <div class="page-header">
-      <p class="eyebrow">Find Your</p>
-      <h1 class="section-title">Elite <span>Coaches</span></h1>
-      <p>Filter by specialty and pick the expert that matches your goals.</p>
-    </div>
-
-    <div class="container">
-
-      <!-- Filter Tabs -->
-      <div class="filter-tabs" id="filterTabs">
-        <button class="filter-tab active" data-filter="all">All</button>
-        <button class="filter-tab" data-filter="weightlifting">Weightlifting</button>
-        <button class="filter-tab" data-filter="bodybuilding">Bodybuilding</button>
-        <button class="filter-tab" data-filter="martial-arts">Martial Arts</button>
-        <button class="filter-tab" data-filter="gymnastics">Gymnastics</button>
-        <button class="filter-tab" data-filter="cardio">Cardio & HIIT</button>
+    <!-- ══════════════════ PAGE HERO ══════════════════ -->
+    <section class="page-hero">
+      <div class="hero-inner">
+        <div>
+          <span class="hero-eyebrow">Private Coaching Services</span>
+          <h1>Your <em>Personal</em><br />Trainer Awaits.</h1>
+          <p>
+            One-on-one expert coaching tailored to your exact goals — not
+            generic gym plans. Choose your specialist and start your
+            transformation today.
+          </p>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="hero-stat-n">12<span>+</span></div>
+            <div class="hero-stat-l">Expert Coaches</div>
+          </div>
+          <div>
+            <div class="hero-stat-n">4.9<span>★</span></div>
+            <div class="hero-stat-l">Avg Rating</div>
+          </div>
+          <div>
+            <div class="hero-stat-n">98<span>%</span></div>
+            <div class="hero-stat-l">Client Satisfaction</div>
+          </div>
+        </div>
       </div>
 
-      <!-- Coach Grid -->
+      <!-- coaching vs membership distinction -->
+      <div class="distinction-bar">
+        <div class="distinction-col">
+          <div class="distinction-icon coaching">🎯</div>
+          <div class="distinction-text">
+            <h4>Private Coaching — This Page</h4>
+            <p>
+              Personal 1-on-1 sessions, specialized skill training, custom
+              programs. You pay per session or package. Your coach is fully
+              dedicated to you.
+            </p>
+          </div>
+        </div>
+        <div class="distinction-sep"></div>
+        <div class="distinction-label">vs</div>
+        <div class="distinction-col">
+          <div class="distinction-icon gym">🏟️</div>
+          <div class="distinction-text">
+            <h4>Gym Membership — Separate</h4>
+            <p>
+              Monthly subscription for gym access, equipment use, group classes
+              & facilities. No dedicated personal trainer included.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════ FILTER PANEL ══════════════════ -->
+    <div class="filter-section" id="filterPanel">
+      <div class="filter-inner">
+        <!-- Row 1: Specialization tabs -->
+        <div class="spec-tabs" id="specTabs">
+          <button class="spec-tab active" data-spec="all">
+            <span class="tab-icon">⚡</span> All Coaches
+            <span class="count" id="cnt-all">12</span>
+          </button>
+          <button class="spec-tab" data-spec="bodybuilding">
+            <span class="tab-icon">💪</span> Bodybuilding
+            <span class="count" id="cnt-bodybuilding">5</span>
+          </button>
+          <button class="spec-tab" data-spec="weightlifting">
+            <span class="tab-icon">🏋️</span> Weightlifting
+            <span class="count" id="cnt-weightlifting">2</span>
+          </button>
+          <button class="spec-tab" data-spec="martial-arts">
+            <span class="tab-icon">🥊</span> Kickboxing &amp; MMA
+            <span class="count" id="cnt-martial-arts">2</span>
+          </button>
+          <button class="spec-tab" data-spec="gymnastics">
+            <span class="tab-icon">🤸</span> Gymnastics &amp; Mobility
+            <span class="count" id="cnt-gymnastics">2</span>
+          </button>
+          <button class="spec-tab" data-spec="cardio">
+            <span class="tab-icon">🏃</span> Cardio &amp; HIIT
+            <span class="count" id="cnt-cardio">1</span>
+          </button>
+        </div>
+
+        <!-- Row 2: Advanced filters -->
+        <div class="adv-filters">
+          <button
+            class="adv-toggle"
+            data-filter="online"
+            title="Online coaching available"
+          >
+            🌐 Online
+          </button>
+          <button
+            class="adv-toggle"
+            data-filter="home"
+            title="Home session available"
+          >
+            🏠 Home Visit
+          </button>
+          <button
+            class="adv-toggle"
+            data-filter="onsite"
+            title="On-site gym coaching"
+          >
+            🏟️ On-Site
+          </button>
+
+          <div class="filter-divider"></div>
+
+          <select
+            class="adv-select"
+            id="levelFilter"
+            aria-label="Experience level"
+          >
+            <option value="all">All Levels</option>
+            <option value="beginner">Beginner</option>
+            <option value="intermediate">Intermediate</option>
+            <option value="advanced">Advanced</option>
+          </select>
+
+          <select
+            class="adv-select"
+            id="sessionFilter"
+            aria-label="Session type"
+          >
+            <option value="all">Session Type</option>
+            <option value="1on1">Private 1-on-1</option>
+            <option value="group">Group Session</option>
+          </select>
+
+          <select
+            class="adv-select"
+            id="genderFilter"
+            aria-label="Coach gender preference"
+          >
+            <option value="all">Any Coach</option>
+            <option value="male">Male Coaches</option>
+            <option value="female">Female Coaches</option>
+          </select>
+
+          <select class="adv-select" id="priceFilter" aria-label="Price range">
+            <option value="all">Any Price</option>
+            <option value="budget">Budget (≤$50)</option>
+            <option value="mid">Mid ($51–$90)</option>
+            <option value="premium">Premium ($90+)</option>
+          </select>
+
+          <div class="filter-divider"></div>
+
+          <span class="results-count" id="resultsCount"
+            >Showing <strong>12</strong> coaches</span
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════ COACHES GRID ══════════════════ -->
+    <section class="coaches-section">
       <div class="coaches-grid" id="coachesGrid">
-        <!-- Populated by coaches.js -->
+        <!-- Populated by JS -->
       </div>
+    </section>
 
+    <!-- ══════════════════ HOW IT WORKS ══════════════════ -->
+    <section class="how-section">
+      <div class="how-inner">
+        <h2>How Private Coaching Works</h2>
+        <p>Simple, transparent, and built around you — not a template.</p>
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-num">1</div>
+            <div class="step-icon">🔍</div>
+            <div class="step-title">Browse &amp; Filter</div>
+            <div class="step-desc">
+              Explore coaches by specialty, availability, location preference,
+              and budget. Read detailed profiles and real reviews.
+            </div>
+          </div>
+          <div class="step-card">
+            <div class="step-num">2</div>
+            <div class="step-icon">📅</div>
+            <div class="step-title">Book a Session</div>
+            <div class="step-desc">
+              Pick your date and time from the coach's live calendar. Single
+              session or discounted package — your choice.
+            </div>
+          </div>
+          <div class="step-card">
+            <div class="step-num">3</div>
+            <div class="step-icon">🎯</div>
+            <div class="step-title">Get Your Plan</div>
+            <div class="step-desc">
+              Your coach builds a custom program with workouts, nutrition
+              guidance, and progress checkpoints just for you.
+            </div>
+          </div>
+          <div class="step-card">
+            <div class="step-num">4</div>
+            <div class="step-icon">📈</div>
+            <div class="step-title">Track &amp; Transform</div>
+            <div class="step-desc">
+              Stay connected with ongoing support, weekly check-ins, and your 3D
+              avatar progress tracker to visualise real changes.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════ COACH MODAL ══════════════════ -->
+    <div
+      class="modal-overlay"
+      id="coachModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalName"
+    >
+      <div class="modal-panel" id="modalPanel">
+        <!-- Populated by JS -->
+      </div>
     </div>
-  </main>
 
-  <!-- Coach Detail Modal -->
-  <div class="modal-overlay" id="coachModal">
-    <div class="modal" id="coachModalContent">
-      <!-- Populated dynamically -->
+    <!-- ══════════════════ BOOKING TOAST ══════════════════ -->
+    <div class="toast" id="bookingToast">
+      <div class="toast-icon">✅</div>
+      <div>
+        <div class="toast-title">Session Request Sent!</div>
+        <div class="toast-body" id="toastBody">
+          Your coach will confirm within 2 hours.
+        </div>
+      </div>
     </div>
-  </div>
 
-  <footer class="footer">
-    <div class="container">
-      <p class="footer__logo">APEX<span>GYM</span></p>
-      <p class="footer__copy">© 2026 ApexGym. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <script src="../js/utils/helpers.js"></script>
-  <script src="../js/core/state.js"></script>
-  <script src="../js/data/coaches.data.js"></script>
-  <script src="../js/components/navbar.js"></script>
-  <script src="../js/components/coachCard.js"></script>
-  <script src="../js/pages/coaches.js"></script>
-</body>
+    <!-- ══════════════════ FOOTER ══════════════════ -->
+    <footer class="footer">
+      <div class="footer-logo">APEX<span>GYM</span></div>
+      <p class="footer-copy">
+        © 2026 ApexGym. Private coaching is separate from gym membership. All
+        rights reserved.
+      </p>
+    </footer>
+    <script src="../js/pages/coaches.js"></script>
+    <script></script>
+  </body>
 </html>

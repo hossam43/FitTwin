@@ -1,188 +1,1269 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>APEX GYM — My Plan</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../css/reset.css" />
-  <link rel="stylesheet" href="../css/variables.css" />
-  <link rel="stylesheet" href="../css/typography.css" />
-  <link rel="stylesheet" href="../css/layout.css" />
-  <link rel="stylesheet" href="../css/components.css" />
-  <link rel="stylesheet" href="../css/animations.css" />
-  <link rel="stylesheet" href="../css/pages/plan.css" />
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>APEX GYM — Choose Your Plan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/pages/plan.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- ══════════════ CANVAS BACKGROUND ══════════════ -->
+    <canvas id="bgCanvas"></canvas>
 
-  <nav id="navbar" class="navbar">
-    <a href="../index.html" class="navbar__logo">APEX<span>GYM</span></a>
-    <ul class="navbar__links">
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="coaches.html">Coaches</a></li>
-      <li><a href="plan.html" class="active">My Plan</a></li>
-      <li><a href="avatar.html">3D Avatar</a></li>
-      <li><a href="progress.html">Progress</a></li>
-    </ul>
-    <a href="plan.html" class="btn btn--primary">Get Started</a>
-  </nav>
+    <!-- ══════════════ NAVBAR ══════════════ -->
+    <nav class="nav" id="nav">
+      <a href="../index.html" class="nav-logo">APEX<span>GYM</span></a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="coaches.html">Coaches</a></li>
+        <li><a href="plan.html" class="active">My Plan</a></li>
+        <li><a href="avatar.html">3D Avatar</a></li>
+        <li><a href="progress.html">Progress</a></li>
+      </ul>
+      <a href="#plans-anchor" class="nav-cta">View Plans</a>
+    </nav>
 
-  <main class="page-shell">
+    <!-- ══════════════════════════════════════════════════
+     STICKY SCROLL STORY TRACK
+══════════════════════════════════════════════════ -->
+    <div class="story-track" id="storyTrack">
+      <div class="story-sticky" id="storySticky">
+        <!-- ORBs that move with scroll -->
+        <div class="orb orb-1" id="orb1"></div>
+        <div class="orb orb-2" id="orb2"></div>
+        <div class="orb orb-3" id="orb3"></div>
 
-    <div class="page-header">
-      <p class="eyebrow">Step-By-Step</p>
-      <h1 class="section-title">Build Your <span>Plan</span></h1>
-    </div>
+        <!-- ── PANEL 0: HERO ── -->
+        <div class="story-panel panel-hero active" id="panel0">
+          <div class="panel-hero-eyebrow">Your Transformation Starts Here</div>
+          <h1>Choose <span>Your</span><br />Journey.</h1>
+          <p class="panel-hero-sub">
+            Three plans. One mission. No matter where you start, APEX has the
+            right subscription to take you further than you ever trained before.
+          </p>
+          <div class="hero-scroll-cue">
+            <div class="hero-scroll-line"></div>
+            <span class="hero-scroll-text">Scroll to explore</span>
+          </div>
+        </div>
 
-    <div class="container">
+        <!-- ── PANEL 1: STATS BENTO ── -->
+        <div class="story-panel panel-stats" id="panel1">
+          <div class="bento-stats-wrap">
+            <div class="bento bs-big bento-acc-top">
+              <div class="bento-icon">🔥</div>
+              <div class="bento-num">
+                <span class="acc" data-target="94">0</span
+                ><span class="acc">%</span>
+              </div>
+              <div class="bento-label">Members hit their goal</div>
+              <div class="bento-desc">
+                Our structured plans are built around science-backed
+                periodization — not guesswork. Real data, real results.
+              </div>
+              <div class="mini-chart">
+                <div class="mini-bars">
+                  <div class="mini-bar" style="height: 35%"></div>
+                  <div class="mini-bar" style="height: 50%"></div>
+                  <div class="mini-bar" style="height: 45%"></div>
+                  <div class="mini-bar" style="height: 65%"></div>
+                  <div class="mini-bar" style="height: 58%"></div>
+                  <div class="mini-bar" style="height: 72%"></div>
+                  <div class="mini-bar" style="height: 68%"></div>
+                  <div class="mini-bar peak" style="height: 94%"></div>
+                </div>
+              </div>
+            </div>
 
-      <!-- Step Indicator -->
-      <div class="steps" id="stepIndicator">
-        <!-- Rendered by plan.js -->
+            <div class="bento bs-mid1">
+              <div class="bento-icon">🏋️</div>
+              <div class="bento-num">
+                <span data-target="12">0</span><span class="acc">+</span>
+              </div>
+              <div class="bento-label">Elite Coaches</div>
+              <div class="bento-desc" style="font-size: 0.78rem">
+                Expert-matched to your goals from day one.
+              </div>
+            </div>
+
+            <div class="bento bs-mid2 bento-teal-top">
+              <div
+                class="bento-num"
+                style="font-size: 2rem; color: var(--teal)"
+              >
+                24/7
+              </div>
+              <div class="bento-label">App Access</div>
+              <div class="bento-desc" style="font-size: 0.78rem">
+                Track, plan and review from anywhere, anytime.
+              </div>
+            </div>
+
+            <div class="bento bs-sm1">
+              <div class="bento-num">
+                <span data-target="4800">0</span><span class="acc">+</span>
+              </div>
+              <div class="bento-label">Active Members</div>
+            </div>
+
+            <div class="bento bs-sm2">
+              <div class="bento-icon" style="font-size: 1.6rem">🥗</div>
+              <div class="bento-num" style="font-size: 2rem">
+                <span data-target="350">0</span><span class="acc">+</span>
+              </div>
+              <div class="bento-label">Meal Plans</div>
+            </div>
+
+            <div class="bento bs-wide">
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 1.5rem;
+                  height: 100%;
+                "
+              >
+                <div>
+                  <div class="bento-icon" style="margin-bottom: 0.4rem">⚡</div>
+                  <div class="bento-num" style="font-size: 2rem">
+                    <span data-target="8">0</span>
+                    <span style="font-size: 1.2rem; color: var(--t2)"
+                      >weeks</span
+                    >
+                  </div>
+                  <div class="bento-label">Avg. visible transformation</div>
+                </div>
+                <div
+                  style="
+                    flex: 1;
+                    height: 3px;
+                    background: linear-gradient(90deg, var(--acc), transparent);
+                    border-radius: 2px;
+                    opacity: 0.5;
+                  "
+                ></div>
+                <div style="text-align: right">
+                  <div
+                    class="bento-num"
+                    style="font-size: 1.6rem; color: var(--t2)"
+                  >
+                    No
+                  </div>
+                  <div class="bento-label">Lock-in contracts</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── PANEL 2: PLANS BENTO ── -->
+        <div class="story-panel panel-plans" id="panel2">
+          <div class="plans-wrap">
+            <div class="plans-header">
+              <h2>Three Plans.<br /><em>Zero Compromise.</em></h2>
+              <p>
+                Pick the membership that matches your ambition. Upgrade or
+                downgrade anytime.
+              </p>
+              <div class="billing-toggle" id="billingToggle">
+                <span class="bt-opt active" data-billing="monthly"
+                  >Monthly</span
+                >
+                <span class="bt-opt" data-billing="annual"
+                  >Annual <span class="bt-save">Save 20%</span></span
+                >
+              </div>
+            </div>
+
+            <div class="plans-bento" id="plansBento">
+              <!-- BASIC -->
+              <div
+                class="plan-card"
+                data-plan="basic"
+                style="transition-delay: 0.05s"
+              >
+                <div class="plan-strip strip-basic"></div>
+                <div class="plan-inner">
+                  <div>
+                    <div class="plan-tier">Tier 01</div>
+                    <div class="plan-name">Basic</div>
+                    <div class="plan-tagline">
+                      Everything you need to start moving and stay consistent.
+                    </div>
+                  </div>
+                  <div>
+                    <div class="plan-price-wrap">
+                      <div
+                        class="plan-price"
+                        data-monthly="29"
+                        data-annual="23"
+                      >
+                        $29
+                      </div>
+                      <div class="plan-price-per">/month</div>
+                    </div>
+                    <div
+                      class="plan-price-annual hidden-annual"
+                      id="annual-basic"
+                    >
+                      $23/mo · billed $276/yr
+                    </div>
+                  </div>
+                  <div class="plan-features">
+                    <div class="pf-item">
+                      <span class="pf-icon pf-yes">✓</span>Full gym access
+                      (6am–10pm)
+                    </div>
+                    <div class="pf-item">
+                      <span class="pf-icon pf-yes">✓</span>Group classes (15+
+                      weekly)
+                    </div>
+                    <div class="pf-item">
+                      <span class="pf-icon pf-yes">✓</span>Locker &amp; shower
+                      access
+                    </div>
+                    <div class="pf-item">
+                      <span class="pf-icon pf-yes">✓</span>Basic workout app
+                      access
+                    </div>
+                    <div class="pf-item">
+                      <span class="pf-icon pf-yes">✓</span>Community challenges
+                      &amp; leaderboard
+                    </div>
+                    <div class="pf-item dimmed">
+                      <span class="pf-icon pf-no">–</span>Nutrition meal plans
+                    </div>
+                    <div class="pf-item dimmed">
+                      <span class="pf-icon pf-no">–</span>Personal coach
+                      matching
+                    </div>
+                    <div class="pf-item dimmed">
+                      <span class="pf-icon pf-no">–</span>3D body avatar tracker
+                    </div>
+                    <div class="pf-item dimmed">
+                      <span class="pf-icon pf-no">–</span>Priority class booking
+                    </div>
+                  </div>
+                  <div class="plan-cta">
+                    <button
+                      class="btn-plan btn-basic"
+                      onclick="selectPlan('basic')"
+                    >
+                      Start Basic
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- STANDARD (FEATURED) -->
+              <div
+                class="plan-card featured"
+                data-plan="standard"
+                style="transition-delay: 0.12s"
+              >
+                <div class="plan-strip strip-standard"></div>
+                <span class="plan-badge badge-featured">★ Most Popular</span>
+                <div class="plan-inner">
+                  <div>
+                    <div class="plan-tier">Tier 02</div>
+                    <div class="plan-name shimmer-text">Standard</div>
+                    <div class="plan-tagline">
+                      The complete fitness system — training, nutrition, and
+                      coaching in one.
+                    </div>
+                  </div>
+                  <div>
+                    <div class="plan-price-wrap">
+                      <div
+                        class="plan-price featured"
+                        data-monthly="69"
+                        data-annual="55"
+                      >
+                        $69
+                      </div>
+                      <div class="plan-price-per">/month</div>
+                    </div>
+                    <div
+                      class="plan-price-annual hidden-annual"
+                      id="annual-standard"
+                    >
+                      $55/mo · billed $660/yr
+                    </div>
+                  </div>
+                  <div class="plan-features">
+                    <div class="pf-item">
+                      <span class="pf-icon pf-yes">✓</span>Everything in Basic
+                    </div>
+                    <div class="pf-item">
+                      <span class="pf-icon pf-yes">✓</span>24/7 gym access
+                    </div>
+                    <div class="pf-item">
+                      <span class="pf-icon pf-yes">✓</span>Weekly personalized
+                      nutrition plan
+                    </div>
+                    <div class="pf-item">
+                      <span class="pf-icon pf-yes">✓</span>AI-generated workout
+                      programming
+                    </div>
+                    <div class="pf-item">
+                      <span class="pf-icon pf-yes">✓</span>3D body avatar
+                      progress tracker
+                    </div>
+                    <div class="pf-item">
+                      <span class="pf-icon pf-yes">✓</span>1 coach
+                      consultation/month (30 min)
+                    </div>
+                    <div class="pf-item">
+                      <span class="pf-icon pf-yes">✓</span>Priority class
+                      booking
+                    </div>
+                    <div class="pf-item">
+                      <span class="pf-icon pf-yes">✓</span>Progress analytics
+                      dashboard
+                    </div>
+                    <div class="pf-item dimmed">
+                      <span class="pf-icon pf-no">–</span>Dedicated personal
+                      coach (weekly)
+                    </div>
+                    <div class="pf-item dimmed">
+                      <span class="pf-icon pf-no">–</span>Guest passes &amp; spa
+                      access
+                    </div>
+                  </div>
+                  <div class="plan-cta">
+                    <button
+                      class="btn-plan btn-standard"
+                      onclick="selectPlan('standard')"
+                    >
+                      Start Standard →
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ELITE -->
+              <div
+                class="plan-card"
+                data-plan="elite"
+                style="transition-delay: 0.2s"
+              >
+                <div class="plan-strip strip-elite"></div>
+                <span class="plan-badge badge-hot">🔥 Elite</span>
+                <div class="plan-inner">
+                  <div>
+                    <div class="plan-tier">Tier 03</div>
+                    <div class="plan-name">Elite</div>
+                    <div class="plan-tagline">
+                      Your personal transformation team. Unlimited access to
+                      everything we offer.
+                    </div>
+                  </div>
+                  <div>
+                    <div class="plan-price-wrap">
+                      <div
+                        class="plan-price"
+                        data-monthly="149"
+                        data-annual="119"
+                      >
+                        $149
+                      </div>
+                      <div class="plan-price-per">/month</div>
+                    </div>
+                    <div
+                      class="plan-price-annual hidden-annual"
+                      id="annual-elite"
+                    >
+                      $119/mo · billed $1,428/yr
+                    </div>
+                  </div>
+                  <div class="plan-features">
+                    <div class="pf-item">
+                      <span class="pf-icon pf-yes">✓</span>Everything in
+                      Standard
+                    </div>
+                    <div class="pf-item">
+                      <span class="pf-icon pf-gold">★</span>Dedicated personal
+                      coach (weekly sessions)
+                    </div>
+                    <div class="pf-item">
+                      <span class="pf-icon pf-gold">★</span>Custom meal &amp;
+                      supplement plan
+                    </div>
+                    <div class="pf-item">
+                      <span class="pf-icon pf-gold">★</span>Monthly body
+                      composition analysis (DEXA)
+                    </div>
+                    <div class="pf-item">
+                      <span class="pf-icon pf-gold">★</span>VIP lounge &amp; spa
+                      access
+                    </div>
+                    <div class="pf-item">
+                      <span class="pf-icon pf-gold">★</span>4 guest passes per
+                      month
+                    </div>
+                    <div class="pf-item">
+                      <span class="pf-icon pf-gold">★</span>Priority coach
+                      messaging (24h response)
+                    </div>
+                    <div class="pf-item">
+                      <span class="pf-icon pf-gold">★</span>Quarterly
+                      transformation review
+                    </div>
+                    <div class="pf-item">
+                      <span class="pf-icon pf-gold">★</span>Exclusive member
+                      events &amp; workshops
+                    </div>
+                  </div>
+                  <div class="plan-cta">
+                    <button
+                      class="btn-plan btn-elite"
+                      onclick="selectPlan('elite')"
+                    >
+                      Go Elite
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- SIDE BENTO 1 -->
+              <div class="plan-side-bento" style="transition-delay: 0.27s">
+                <div class="psb-icon">🎯</div>
+                <div class="psb-title">Goal-Matched Programming</div>
+                <div class="psb-desc">
+                  Standard &amp; Elite members receive workout programs built
+                  specifically around their goal — not generic templates.
+                </div>
+                <div class="psb-accent"></div>
+              </div>
+
+              <!-- SIDE BENTO 2 -->
+              <div class="plan-side-bento" style="transition-delay: 0.33s">
+                <div class="psb-icon">🔄</div>
+                <div class="psb-title">Cancel Anytime</div>
+                <div class="psb-desc">
+                  No lock-in contracts. Pause or cancel your membership at any
+                  time — no questions asked.
+                </div>
+                <div
+                  class="psb-accent"
+                  style="background: rgba(0, 232, 180, 0.05)"
+                ></div>
+              </div>
+
+              <!-- COMPARE ROW -->
+              <div class="compare-row" style="transition-delay: 0.38s">
+                <div class="compare-item">
+                  <div class="compare-val"><span>3</span></div>
+                  <div class="compare-lbl">Membership tiers</div>
+                </div>
+                <div class="compare-sep"></div>
+                <div class="compare-item">
+                  <div class="compare-val">$<span>29</span></div>
+                  <div class="compare-lbl">Starting from / month</div>
+                </div>
+                <div class="compare-sep"></div>
+                <div class="compare-item">
+                  <div class="compare-val"><span>0</span></div>
+                  <div class="compare-lbl">Lock-in contracts</div>
+                </div>
+                <div class="compare-sep"></div>
+                <div class="compare-item">
+                  <div class="compare-val">
+                    <span>20</span><span style="color: var(--acc)">%</span>
+                  </div>
+                  <div class="compare-lbl">Saved on annual billing</div>
+                </div>
+              </div>
+            </div>
+            <!-- /plans-bento -->
+          </div>
+        </div>
+
+        <!-- ── PANEL 3: GOAL SELECTOR ── -->
+        <div class="story-panel panel-select" id="panel3">
+          <div class="select-header">
+            <h2>What's Your Goal?</h2>
+            <p>
+              Tell us a bit about yourself and we'll recommend the perfect plan.
+            </p>
+          </div>
+
+          <div class="goal-grid">
+            <div
+              class="goal-card"
+              data-goal="fat-loss"
+              onclick="selectGoal(this)"
+            >
+              <div class="goal-icon">🔥</div>
+              <div class="goal-name">Fat Loss</div>
+              <div class="goal-desc">
+                Burn fat, reveal muscle, transform your body composition
+              </div>
+              <div class="goal-rec">→ Standard Plan</div>
+            </div>
+            <div
+              class="goal-card"
+              data-goal="muscle"
+              onclick="selectGoal(this)"
+            >
+              <div class="goal-icon">💪</div>
+              <div class="goal-name">Muscle Gain</div>
+              <div class="goal-desc">
+                Build lean mass, increase strength, sculpt your physique
+              </div>
+              <div class="goal-rec">→ Elite Plan</div>
+            </div>
+            <div
+              class="goal-card"
+              data-goal="performance"
+              onclick="selectGoal(this)"
+            >
+              <div class="goal-icon">⚡</div>
+              <div class="goal-name">Performance</div>
+              <div class="goal-desc">
+                Athletic conditioning, endurance and functional fitness
+              </div>
+              <div class="goal-rec">→ Standard Plan</div>
+            </div>
+            <div
+              class="goal-card"
+              data-goal="general"
+              onclick="selectGoal(this)"
+            >
+              <div class="goal-icon">🌿</div>
+              <div class="goal-name">General Fitness</div>
+              <div class="goal-desc">
+                Stay active, feel great, build lifelong healthy habits
+              </div>
+              <div class="goal-rec">→ Basic Plan</div>
+            </div>
+          </div>
+
+          <div class="quick-info">
+            <div class="qi-field">
+              <label class="qi-label">Age</label>
+              <input
+                class="qi-input"
+                type="number"
+                placeholder="e.g. 28"
+                min="14"
+                max="90"
+                id="qi-age"
+              />
+            </div>
+            <div class="qi-field">
+              <label class="qi-label">Current Level</label>
+              <select class="qi-input" id="qi-level" style="cursor: pointer">
+                <option value="">Select...</option>
+                <option>Complete Beginner</option>
+                <option>Some Experience</option>
+                <option>Intermediate</option>
+                <option>Advanced</option>
+              </select>
+            </div>
+            <div class="qi-field">
+              <label class="qi-label">Days / Week</label>
+              <select class="qi-input" id="qi-days" style="cursor: pointer">
+                <option value="">Select...</option>
+                <option>2 days</option>
+                <option>3 days</option>
+                <option>4–5 days</option>
+                <option>6+ days</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="select-cta">
+            <button
+              class="btn-discover"
+              id="discoverBtn"
+              onclick="scrollToPlanSection()"
+            >
+              See My Recommended Plan →
+            </button>
+            <span class="btn-discover-sub"
+              >No credit card required to browse</span
+            >
+          </div>
+        </div>
+
+        <!-- Progress dots -->
+        <div class="story-progress">
+          <div class="sp-dot active" data-panel="0"></div>
+          <div class="sp-dot" data-panel="1"></div>
+          <div class="sp-dot" data-panel="2"></div>
+          <div class="sp-dot" data-panel="3"></div>
+        </div>
+
+        <div class="scroll-hint">
+          <span>Scroll</span>
+          <div class="scroll-hint-arrow">↓</div>
+        </div>
       </div>
-
-      <!-- Multi-Step Form -->
-      <div class="plan-form-wrap" id="planFormWrap">
-
-        <!-- Step 1: Basic Info -->
-        <div class="plan-step" data-step="1" id="step1">
-          <h2 class="plan-step__title">Basic Info</h2>
-          <div class="plan-grid-2">
-            <div class="form-group">
-              <label class="form-label" for="age">Age</label>
-              <input class="form-input" type="number" id="age" name="age" min="14" max="90" placeholder="e.g. 26" />
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="gender">Gender</label>
-              <select class="form-select" id="gender" name="gender">
-                <option value="">Select…</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="weight">Weight (kg)</label>
-              <input class="form-input" type="number" id="weight" name="weight" placeholder="e.g. 80" />
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="height">Height (cm)</label>
-              <input class="form-input" type="number" id="height" name="height" placeholder="e.g. 178" />
-            </div>
-          </div>
-          <div class="plan-step__nav">
-            <span></span>
-            <button class="btn btn--primary" id="step1Next">Next →</button>
-          </div>
-        </div>
-
-        <!-- Step 2: Goals & Lifestyle -->
-        <div class="plan-step hidden" data-step="2" id="step2">
-          <h2 class="plan-step__title">Goals & Lifestyle</h2>
-
-          <div class="form-group">
-            <label class="form-label">Primary Goal</label>
-            <div class="goal-picker" id="goalPicker">
-              <button class="goal-btn" data-goal="weight-loss">🔥 Weight Loss</button>
-              <button class="goal-btn" data-goal="muscle-gain">💪 Muscle Gain</button>
-              <button class="goal-btn" data-goal="flexibility">🧘 Flexibility</button>
-              <button class="goal-btn" data-goal="endurance">🏃 Endurance</button>
-            </div>
-          </div>
-
-          <div class="plan-grid-2">
-            <div class="form-group">
-              <label class="form-label" for="activity">Daily Activity Level</label>
-              <select class="form-select" id="activity" name="activity">
-                <option value="">Select…</option>
-                <option value="sedentary">Sedentary (desk job)</option>
-                <option value="light">Lightly Active</option>
-                <option value="moderate">Moderately Active</option>
-                <option value="very">Very Active</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="frequency">Workouts per Week</label>
-              <select class="form-select" id="frequency" name="frequency">
-                <option value="">Select…</option>
-                <option value="2">2 days</option>
-                <option value="3">3 days</option>
-                <option value="4">4 days</option>
-                <option value="5">5+ days</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label" for="dietRestrictions">Diet Restrictions</label>
-            <input class="form-input" type="text" id="dietRestrictions" placeholder="e.g. vegetarian, lactose intolerant…" />
-          </div>
-
-          <div class="form-group">
-            <label class="form-label" for="injuries">Injuries / Limitations</label>
-            <textarea class="form-textarea" id="injuries" rows="3" placeholder="Describe any injuries we should know about…"></textarea>
-          </div>
-
-          <div class="plan-step__nav">
-            <button class="btn btn--ghost" id="step2Back">← Back</button>
-            <button class="btn btn--primary" id="step2Next">Next →</button>
-          </div>
-        </div>
-
-        <!-- Step 3: Body Composition (Advanced) -->
-        <div class="plan-step hidden" data-step="3" id="step3">
-          <h2 class="plan-step__title">Body Composition <span class="tag tag--accent">Optional</span></h2>
-          <p class="plan-step__desc">Fine-tune your 3D avatar with detailed measurements.</p>
-
-          <div class="form-group">
-            <label class="form-label" for="fatPct">Body Fat % — <span id="fatPctVal">20</span>%</label>
-            <input class="form-range" type="range" id="fatPct" name="fatPct" min="5" max="50" value="20" />
-            <div class="range-display"><span>5%</span><span>50%</span></div>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label" for="muscleMass">Muscle Mass — <span id="muscleMassVal">50</span>%</label>
-            <input class="form-range" type="range" id="muscleMass" name="muscleMass" min="20" max="80" value="50" />
-            <div class="range-display"><span>Low</span><span>High</span></div>
-          </div>
-
-          <div class="plan-grid-2">
-            <div class="form-group">
-              <label class="form-label" for="upperBodyFat">Upper Body Fat — <span id="upperBodyFatVal">50</span>%</label>
-              <input class="form-range" type="range" id="upperBodyFat" min="0" max="100" value="50" />
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="lowerBodyFat">Lower Body Fat — <span id="lowerBodyFatVal">50</span>%</label>
-              <input class="form-range" type="range" id="lowerBodyFat" min="0" max="100" value="50" />
-            </div>
-          </div>
-
-          <div class="plan-step__nav">
-            <button class="btn btn--ghost" id="step3Back">← Back</button>
-            <button class="btn btn--primary" id="step3Submit">Generate My Plan ✦</button>
-          </div>
-        </div>
-
-        <!-- Result Panel -->
-        <div class="plan-step hidden" data-step="4" id="stepResult">
-          <div id="planResult"></div>
-        </div>
-
-      </div>
+      <!-- /story-sticky -->
     </div>
-  </main>
+    <!-- /story-track -->
 
-  <footer class="footer">
-    <div class="container">
-      <p class="footer__logo">APEX<span>GYM</span></p>
-      <p class="footer__copy">© 2026 ApexGym. All rights reserved.</p>
+    <!-- ══════════════════════════════════════════════════
+     AFTER-SCROLL CONTENT
+══════════════════════════════════════════════════ -->
+    <div class="after-scroll" id="plansAnchor">
+      <!-- ── FULL COMPARISON TABLE ── -->
+      <section class="comparison-section">
+        <div class="wrap">
+          <div class="sec-header">
+            <h2>Full Feature Comparison</h2>
+            <p>Every detail, side by side. No hidden fees, no surprises.</p>
+          </div>
+          <table class="comp-table">
+            <thead>
+              <tr>
+                <th class="col-feat">Feature</th>
+                <th>
+                  Basic<br /><span
+                    style="
+                      font-family: var(--fb);
+                      font-size: 0.85rem;
+                      font-weight: 400;
+                      color: var(--t2);
+                    "
+                    >$29/mo</span
+                  >
+                </th>
+                <th class="col-std">
+                  Standard<br /><span
+                    style="
+                      font-family: var(--fb);
+                      font-size: 0.85rem;
+                      font-weight: 400;
+                    "
+                    >$69/mo</span
+                  >
+                </th>
+                <th class="col-eli">
+                  Elite<br /><span
+                    style="
+                      font-family: var(--fb);
+                      font-size: 0.85rem;
+                      font-weight: 400;
+                      color: var(--t2);
+                    "
+                    >$149/mo</span
+                  >
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="feat">Gym Access Hours</td>
+                <td>6am–10pm</td>
+                <td>24/7</td>
+                <td>24/7 VIP</td>
+              </tr>
+              <tr>
+                <td class="feat">Group Classes</td>
+                <td><span class="check-yes">✓</span> 15+/week</td>
+                <td><span class="check-yes">✓</span> All classes</td>
+                <td><span class="check-gold">★</span> Priority booking</td>
+              </tr>
+              <tr>
+                <td class="feat">Locker &amp; Shower</td>
+                <td><span class="check-yes">✓</span></td>
+                <td><span class="check-yes">✓</span></td>
+                <td><span class="check-gold">★</span> VIP locker room</td>
+              </tr>
+              <tr>
+                <td class="feat">Workout App</td>
+                <td>Basic</td>
+                <td>Full + AI Programs</td>
+                <td>Full + AI Programs</td>
+              </tr>
+              <tr>
+                <td class="feat">Nutrition Plan</td>
+                <td><span class="check-no">–</span></td>
+                <td><span class="check-yes">✓</span> Weekly custom</td>
+                <td><span class="check-gold">★</span> Custom + supplements</td>
+              </tr>
+              <tr>
+                <td class="feat">Coach Access</td>
+                <td><span class="check-no">–</span></td>
+                <td><span class="check-yes">✓</span> 1×/month (30 min)</td>
+                <td>
+                  <span class="check-gold">★</span> Weekly dedicated coach
+                </td>
+              </tr>
+              <tr>
+                <td class="feat">3D Avatar Tracker</td>
+                <td><span class="check-no">–</span></td>
+                <td><span class="check-yes">✓</span></td>
+                <td><span class="check-gold">★</span></td>
+              </tr>
+              <tr>
+                <td class="feat">Body Composition Analysis</td>
+                <td><span class="check-no">–</span></td>
+                <td><span class="check-no">–</span></td>
+                <td><span class="check-gold">★</span> Monthly DEXA scan</td>
+              </tr>
+              <tr>
+                <td class="feat">Progress Analytics</td>
+                <td><span class="check-no">–</span></td>
+                <td><span class="check-yes">✓</span></td>
+                <td><span class="check-gold">★</span> Advanced</td>
+              </tr>
+              <tr>
+                <td class="feat">Guest Passes</td>
+                <td><span class="check-no">–</span></td>
+                <td><span class="check-no">–</span></td>
+                <td><span class="check-gold">★</span> 4/month</td>
+              </tr>
+              <tr>
+                <td class="feat">Spa &amp; VIP Lounge</td>
+                <td><span class="check-no">–</span></td>
+                <td><span class="check-no">–</span></td>
+                <td><span class="check-gold">★</span></td>
+              </tr>
+              <tr>
+                <td class="feat">Priority Coach Messaging</td>
+                <td><span class="check-no">–</span></td>
+                <td><span class="check-no">–</span></td>
+                <td><span class="check-gold">★</span> 24h response</td>
+              </tr>
+              <tr>
+                <td class="feat">Community &amp; Challenges</td>
+                <td><span class="check-yes">✓</span></td>
+                <td><span class="check-yes">✓</span></td>
+                <td><span class="check-gold">★</span> Exclusive events</td>
+              </tr>
+              <tr>
+                <td class="feat">Cancel Anytime</td>
+                <td><span class="check-yes">✓</span></td>
+                <td><span class="check-yes">✓</span></td>
+                <td><span class="check-yes">✓</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ── FAQ BENTO ── -->
+      <section class="faq-section">
+        <div class="wrap">
+          <div class="sec-header">
+            <h2>Common Questions</h2>
+            <p>Everything you need to know before you commit.</p>
+          </div>
+          <div class="faq-bento">
+            <div class="faq-card">
+              <div class="faq-tag">Membership</div>
+              <div class="faq-q">Can I switch plans later?</div>
+              <div class="faq-a">
+                Absolutely. Upgrade or downgrade at any time from your account
+                dashboard. Changes take effect at the start of your next billing
+                cycle.
+              </div>
+            </div>
+            <div class="faq-card">
+              <div class="faq-tag">Coaching</div>
+              <div class="faq-q">Is coaching included or separate?</div>
+              <div class="faq-a">
+                Standard includes 1 monthly coach consultation. Elite includes
+                dedicated weekly coaching sessions. Additional private sessions
+                can be booked separately via our Coaches page.
+              </div>
+            </div>
+            <div class="faq-card">
+              <div class="faq-tag">Billing</div>
+              <div class="faq-q">How does annual billing work?</div>
+              <div class="faq-a">
+                Pay one year upfront and save 20%. You're billed once yearly and
+                get all features from day one. Cancel within 30 days for a full
+                refund.
+              </div>
+            </div>
+            <div class="faq-card">
+              <div class="faq-tag">Nutrition</div>
+              <div class="faq-q">How personalized are the nutrition plans?</div>
+              <div class="faq-a">
+                Standard plans are generated based on your goal, body stats, and
+                dietary restrictions. Elite plans are reviewed and customized by
+                a certified nutrition coach every week.
+              </div>
+            </div>
+            <div class="faq-card">
+              <div class="faq-tag">Avatar</div>
+              <div class="faq-q">What is the 3D avatar tracker?</div>
+              <div class="faq-a">
+                Your 3D avatar updates with your real body measurements —
+                showing fat distribution, muscle gain, and transformation
+                progress visually over time. Available on Standard and Elite.
+              </div>
+            </div>
+            <div class="faq-card">
+              <div class="faq-tag">Cancellation</div>
+              <div class="faq-q">What happens if I cancel?</div>
+              <div class="faq-a">
+                Your membership remains active until the end of your current
+                billing period. No penalties, no charges after cancellation.
+                Your data is saved for 90 days.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── FINAL CTA ── -->
+      <section class="final-cta">
+        <div class="wrap">
+          <h2>Start<br />Today.<br /><span>Not Monday.</span></h2>
+          <p>
+            Every day you wait is a day you could be training. Pick your plan
+            and let's go.
+          </p>
+          <div class="final-cta-btns">
+            <a
+              href="#"
+              onclick="selectPlan('standard')"
+              class="btn-final-primary"
+              >Start Standard — $69/mo</a
+            >
+            <a href="#" onclick="selectPlan('elite')" class="btn-final-ghost"
+              >Go Elite — $149/mo</a
+            >
+          </div>
+        </div>
+      </section>
     </div>
-  </footer>
+    <!-- /after-scroll -->
 
-  <script src="../js/utils/helpers.js"></script>
-  <script src="../js/core/state.js"></script>
-  <script src="../js/components/navbar.js"></script>
-  <script src="../js/pages/plan.js"></script>
-</body>
+    <!-- ══════════════ FOOTER ══════════════ -->
+    <footer class="footer">
+      <div class="f-logo">APEX<span>GYM</span></div>
+      <p class="f-copy">
+        © 2026 ApexGym. All rights reserved. Membership plans are gym
+        subscriptions. Private coaching is booked separately.
+      </p>
+    </footer>
+
+    <!-- ══════════════════════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════════════════════ -->
+    <script>
+      /* ────────────────────────────────────────────────
+   1. ANIMATED CANVAS BACKGROUND
+──────────────────────────────────────────────── */
+      (function initCanvas() {
+        const canvas = document.getElementById("bgCanvas");
+        const ctx = canvas.getContext("2d");
+        let W,
+          H,
+          nodes = [],
+          RAF;
+        const NODE_COUNT = 55;
+        const MAX_DIST = 160;
+
+        function resize() {
+          W = canvas.width = window.innerWidth;
+          H = canvas.height = window.innerHeight;
+        }
+        function mkNode() {
+          return {
+            x: Math.random() * W,
+            y: Math.random() * H,
+            vx: (Math.random() - 0.5) * 0.35,
+            vy: (Math.random() - 0.5) * 0.35,
+            r: Math.random() * 1.8 + 0.5,
+          };
+        }
+        function initNodes() {
+          nodes = Array.from({ length: NODE_COUNT }, mkNode);
+        }
+
+        function draw() {
+          ctx.clearRect(0, 0, W, H);
+          // update positions
+          nodes.forEach((n) => {
+            n.x += n.vx;
+            n.y += n.vy;
+            if (n.x < 0) n.x = W;
+            if (n.x > W) n.x = 0;
+            if (n.y < 0) n.y = H;
+            if (n.y > H) n.y = 0;
+          });
+          // draw edges
+          for (let i = 0; i < nodes.length; i++) {
+            for (let j = i + 1; j < nodes.length; j++) {
+              const dx = nodes[i].x - nodes[j].x;
+              const dy = nodes[i].y - nodes[j].y;
+              const d = Math.sqrt(dx * dx + dy * dy);
+              if (d < MAX_DIST) {
+                const alpha = (1 - d / MAX_DIST) * 0.18;
+                ctx.beginPath();
+                ctx.moveTo(nodes[i].x, nodes[i].y);
+                ctx.lineTo(nodes[j].x, nodes[j].y);
+                ctx.strokeStyle = `rgba(232,255,0,${alpha})`;
+                ctx.lineWidth = 0.6;
+                ctx.stroke();
+              }
+            }
+          }
+          // draw nodes
+          nodes.forEach((n) => {
+            ctx.beginPath();
+            ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+            ctx.fillStyle = "rgba(232,255,0,.35)";
+            ctx.fill();
+          });
+          RAF = requestAnimationFrame(draw);
+        }
+
+        resize();
+        initNodes();
+        draw();
+        window.addEventListener("resize", () => {
+          resize();
+          initNodes();
+        });
+      })();
+
+      /* ────────────────────────────────────────────────
+   2. SCROLL-DRIVEN STORY ENGINE
+──────────────────────────────────────────────── */
+      (function initStory() {
+        const track = document.getElementById("storyTrack");
+        const panels = document.querySelectorAll(".story-panel");
+        const dots = document.querySelectorAll(".sp-dot");
+        const orb1 = document.getElementById("orb1");
+        const orb2 = document.getElementById("orb2");
+        const orb3 = document.getElementById("orb3");
+        const nav = document.getElementById("nav");
+
+        const PANEL_COUNT = panels.length;
+        let currentPanel = 0;
+        let animating = false;
+        let countUpsDone = new Set();
+
+        function getScrollProgress() {
+          const rect = track.getBoundingClientRect();
+          const total = track.offsetHeight - window.innerHeight;
+          const gone = -rect.top;
+          return Math.max(0, Math.min(1, gone / total));
+        }
+
+        function panelIndexFromProgress(p) {
+          return Math.min(PANEL_COUNT - 1, Math.floor(p * PANEL_COUNT));
+        }
+
+        function showPanel(idx) {
+          if (idx === currentPanel && panels[idx].classList.contains("active"))
+            return;
+          panels.forEach((p, i) => {
+            p.classList.toggle("active", i === idx);
+          });
+          dots.forEach((d, i) => {
+            d.classList.remove("active", "done");
+            if (i < idx) d.classList.add("done");
+            if (i === idx) d.classList.add("active");
+          });
+          currentPanel = idx;
+
+          // Trigger count-ups when stats panel appears
+          if (idx === 1 && !countUpsDone.has(1)) {
+            countUpsDone.add(1);
+            setTimeout(runCountUps, 200);
+          }
+          // Trigger bento cards when plans panel appears
+          if (idx === 2) triggerPlanCards();
+        }
+
+        function updateOrbs(progress) {
+          const p = progress;
+          orb1.style.transform = `translate(${p * 80}px, ${Math.sin(p * Math.PI) * -60}px)`;
+          orb2.style.transform = `translate(${-p * 60}px, ${Math.cos(p * Math.PI) * 50}px)`;
+          orb3.style.transform = `translate(${Math.sin(p * Math.PI * 2) * 40}px, ${p * 80}px)`;
+        }
+
+        window.addEventListener(
+          "scroll",
+          () => {
+            const progress = getScrollProgress();
+            const idx = panelIndexFromProgress(progress);
+            showPanel(idx);
+            updateOrbs(progress);
+            nav.classList.toggle("solid", window.scrollY > 20);
+          },
+          { passive: true },
+        );
+
+        // Dot navigation
+        dots.forEach((dot) => {
+          dot.addEventListener("click", () => {
+            const idx = parseInt(dot.dataset.panel);
+            const total = track.offsetHeight - window.innerHeight;
+            const target = track.offsetTop + (idx / PANEL_COUNT) * total + 20;
+            window.scrollTo({ top: target, behavior: "smooth" });
+          });
+        });
+
+        // Initial panel
+        showPanel(0);
+      })();
+
+      /* ────────────────────────────────────────────────
+   3. COUNT-UP ANIMATION
+──────────────────────────────────────────────── */
+      function runCountUps() {
+        document.querySelectorAll("[data-target]").forEach((el) => {
+          const target = parseInt(el.dataset.target);
+          const duration = 1400;
+          const start = performance.now();
+          function tick(now) {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            el.textContent = Math.round(eased * target).toLocaleString();
+            if (progress < 1) requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+        });
+      }
+
+      /* ────────────────────────────────────────────────
+   4. PLAN CARD ENTRANCE ANIMATION
+──────────────────────────────────────────────── */
+      function triggerPlanCards() {
+        const cards = document.querySelectorAll(
+          ".plan-card, .plan-side-bento, .compare-row",
+        );
+        cards.forEach((c, i) => {
+          setTimeout(() => c.classList.add("visible"), i * 80);
+        });
+      }
+
+      // Also trigger bento stats with IntersectionObserver for after-scroll
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+              io.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.12 },
+      );
+      document
+        .querySelectorAll(".bento,.faq-card")
+        .forEach((el) => io.observe(el));
+
+      /* ────────────────────────────────────────────────
+   5. BILLING TOGGLE
+──────────────────────────────────────────────── */
+      let billingMode = "monthly";
+
+      document
+        .getElementById("billingToggle")
+        .addEventListener("click", (e) => {
+          const opt = e.target.closest(".bt-opt");
+          if (!opt) return;
+          const mode = opt.dataset.billing;
+          if (mode === billingMode) return;
+          billingMode = mode;
+
+          document
+            .querySelectorAll(".bt-opt")
+            .forEach((o) => o.classList.remove("active"));
+          opt.classList.add("active");
+
+          // Animate price changes
+          document.querySelectorAll(".plan-price").forEach((el) => {
+            const price =
+              mode === "monthly" ? el.dataset.monthly : el.dataset.annual;
+            el.style.transform = "translateY(-8px)";
+            el.style.opacity = "0";
+            setTimeout(() => {
+              el.textContent = "$" + price;
+              el.style.transform = "";
+              el.style.opacity = "1";
+              el.style.transition = "all .3s cubic-bezier(.16,1,.3,1)";
+            }, 160);
+          });
+
+          // Show/hide annual note
+          ["basic", "standard", "elite"].forEach((plan) => {
+            const el = document.getElementById("annual-" + plan);
+            if (el) el.classList.toggle("hidden-annual", mode === "monthly");
+          });
+        });
+
+      /* ────────────────────────────────────────────────
+   6. GOAL SELECTION
+──────────────────────────────────────────────── */
+      function selectGoal(card) {
+        document
+          .querySelectorAll(".goal-card")
+          .forEach((c) => c.classList.remove("selected"));
+        card.classList.add("selected");
+
+        // Ripple micro-animation
+        const ripple = document.createElement("div");
+        ripple.style.cssText = `
+    position:absolute;width:120%;height:120%;top:-10%;left:-10%;
+    border-radius:16px;border:2px solid rgba(232,255,0,.5);
+    animation:rippleOut .6s ease-out forwards;pointer-events:none;
+  `;
+        if (!document.getElementById("rippleStyle")) {
+          const s = document.createElement("style");
+          s.id = "rippleStyle";
+          s.textContent = `@keyframes rippleOut{from{transform:scale(.9);opacity:1}to{transform:scale(1.05);opacity:0}}`;
+          document.head.appendChild(s);
+        }
+        card.style.position = "relative";
+        card.appendChild(ripple);
+        setTimeout(() => ripple.remove(), 700);
+      }
+
+      /* ────────────────────────────────────────────────
+   7. PLAN SELECTION + TOAST
+──────────────────────────────────────────────── */
+      const PLAN_NAMES = {
+        basic: "Basic",
+        standard: "Standard",
+        elite: "Elite",
+      };
+      const PLAN_PRICES = { basic: "$29", standard: "$69", elite: "$149" };
+
+      function selectPlan(plan) {
+        // Pulse selected card
+        const card = document.querySelector(`.plan-card[data-plan="${plan}"]`);
+        if (card) {
+          card.style.transform = "scale(1.02) translateY(-8px)";
+          card.style.boxShadow =
+            "0 24px 80px rgba(0,0,0,.7), 0 0 80px rgba(232,255,0,.3)";
+          setTimeout(() => {
+            card.style.transform = "";
+            card.style.boxShadow = "";
+          }, 600);
+        }
+
+        // Show toast
+        showToast(plan);
+      }
+
+      function showToast(plan) {
+        const existing = document.getElementById("planToast");
+        if (existing) existing.remove();
+
+        const toast = document.createElement("div");
+        toast.id = "planToast";
+        toast.style.cssText = `
+    position:fixed;bottom:2rem;right:2rem;z-index:500;
+    background:#111;border:1px solid var(--acc);border-radius:14px;
+    padding:1.2rem 1.6rem;display:flex;align-items:center;gap:1rem;
+    box-shadow:0 8px 40px rgba(0,0,0,.7),0 0 40px rgba(232,255,0,.15);
+    transform:translateY(20px);opacity:0;
+    transition:all .35s cubic-bezier(.16,1,.3,1);
+    max-width:340px;font-family:var(--fb);
+  `;
+        toast.innerHTML = `
+    <div style="font-size:1.8rem">✅</div>
+    <div>
+      <div style="font-weight:700;color:#f2f2f2;margin-bottom:.2rem">${PLAN_NAMES[plan]} Plan Selected</div>
+      <div style="font-size:.8rem;color:#8a8a8a">Starting at ${PLAN_PRICES[plan]}/month · Cancel anytime</div>
+    </div>
+    <button onclick="this.parentElement.remove()" style="margin-left:auto;color:#484848;font-size:1.1rem;flex-shrink:0">✕</button>
+  `;
+        document.body.appendChild(toast);
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            toast.style.transform = "translateY(0)";
+            toast.style.opacity = "1";
+          });
+        });
+        setTimeout(() => {
+          toast.style.transform = "translateY(20px)";
+          toast.style.opacity = "0";
+          setTimeout(() => toast.remove(), 400);
+        }, 4000);
+      }
+
+      /* ────────────────────────────────────────────────
+   8. SCROLL TO PLANS SECTION
+──────────────────────────────────────────────── */
+      function scrollToPlanSection() {
+        document
+          .getElementById("plansAnchor")
+          .scrollIntoView({ behavior: "smooth" });
+      }
+
+      /* ────────────────────────────────────────────────
+   9. FLOATING PARTICLES
+──────────────────────────────────────────────── */
+      (function spawnParticles() {
+        const count = 18;
+        for (let i = 0; i < count; i++) {
+          const p = document.createElement("div");
+          p.className = "particle";
+          const size = Math.random() * 3 + 1;
+          const left = Math.random() * 100;
+          const dur = Math.random() * 20 + 15;
+          const delay = Math.random() * 20;
+          p.style.cssText = `
+      width:${size}px;height:${size}px;
+      left:${left}%;bottom:-20px;
+      background:rgba(232,255,0,${Math.random() * 0.25 + 0.05});
+      animation-duration:${dur}s;animation-delay:-${delay}s;
+    `;
+          document.body.appendChild(p);
+        }
+      })();
+
+      /* ────────────────────────────────────────────────
+   10. BENTO HOVER MICRO-INTERACTION
+──────────────────────────────────────────────── */
+      document.addEventListener("mousemove", (e) => {
+        document
+          .querySelectorAll(".bento, .plan-card, .faq-card")
+          .forEach((card) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const cx = rect.width / 2;
+            const cy = rect.height / 2;
+            const rotX = ((y - cy) / cy) * -4;
+            const rotY = ((x - cx) / cx) * 4;
+
+            if (x >= 0 && x <= rect.width && y >= 0 && y <= rect.height) {
+              card.style.transform = `perspective(800px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-4px)`;
+            } else {
+              card.style.transform = "";
+            }
+          });
+      });
+
+      /* ────────────────────────────────────────────────
+   11. BENTO STATS DELAYED VISIBILITY
+       (triggered from story engine panel 1)
+──────────────────────────────────────────────── */
+      const bentoObs = new MutationObserver(() => {
+        const p1 = document.getElementById("panel1");
+        if (p1 && p1.classList.contains("active")) {
+          p1.querySelectorAll(".bento").forEach((b, i) => {
+            setTimeout(() => b.classList.add("visible"), i * 80);
+          });
+        }
+      });
+      bentoObs.observe(document.getElementById("panel1"), {
+        attributes: true,
+        attributeFilter: ["class"],
+      });
+    </script>
+  </body>
 </html>
+ut them growing up, how they were as babies and watching them grow up really is
+fantastic but sad at the same time. Amazing song and great movie

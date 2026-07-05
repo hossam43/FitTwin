@@ -41,10 +41,19 @@
   color: #fff;
 }
 
-.btn--lg { padding: 0.8em 2em; font-size: var(--text-base); }
-.btn--sm { padding: 0.4em 0.9em; font-size: var(--text-xs); }
+.btn--lg {
+  padding: 0.8em 2em;
+  font-size: var(--text-base);
+}
+.btn--sm {
+  padding: 0.4em 0.9em;
+  font-size: var(--text-xs);
+}
 
-.btn:disabled { opacity: 0.4; pointer-events: none; }
+.btn:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
 
 /* ──────────────────────────────────────
    CARDS
@@ -54,7 +63,9 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: var(--space-6);
-  transition: border-color var(--transition), transform var(--transition);
+  transition:
+    border-color var(--transition),
+    transform var(--transition);
 }
 .card:hover {
   border-color: var(--color-accent);
@@ -138,7 +149,11 @@
   color: var(--color-text-secondary);
   font-weight: 500;
 }
-.tag--accent { background: rgba(232, 255, 0, 0.1); border-color: var(--color-accent); color: var(--color-accent); }
+.tag--accent {
+  background: rgba(232, 255, 0, 0.1);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
 
 /* ──────────────────────────────────────
    FORM ELEMENTS
@@ -156,7 +171,10 @@
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
-.form-hint { font-size: var(--text-xs); color: var(--color-text-muted); }
+.form-hint {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
 
 .form-input,
 .form-select,
@@ -177,7 +195,9 @@
   border-color: var(--color-accent);
   box-shadow: 0 0 0 3px rgba(232, 255, 0, 0.1);
 }
-.form-input::placeholder { color: var(--color-text-muted); }
+.form-input::placeholder {
+  color: var(--color-text-muted);
+}
 
 .form-range {
   -webkit-appearance: none;
@@ -248,10 +268,20 @@
   text-align: center;
   min-width: 90px;
 }
-.badge__icon { font-size: 2rem; }
-.badge__label { font-size: var(--text-xs); font-weight: 600; color: var(--color-text-secondary); }
-.badge--earned { border-color: var(--color-accent); }
-.badge--earned .badge__label { color: var(--color-accent); }
+.badge__icon {
+  font-size: 2rem;
+}
+.badge__label {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+.badge--earned {
+  border-color: var(--color-accent);
+}
+.badge--earned .badge__label {
+  color: var(--color-accent);
+}
 
 /* ──────────────────────────────────────
    PROGRESS BAR
@@ -312,7 +342,9 @@
   height: 2px;
   background: var(--color-border);
 }
-.step__line.done { background: var(--color-accent); }
+.step__line.done {
+  background: var(--color-accent);
+}
 
 /* ──────────────────────────────────────
    MODAL
@@ -320,7 +352,7 @@
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(4px);
   z-index: 200;
   display: flex;

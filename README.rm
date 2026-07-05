@@ -251,3 +251,227 @@ Add gamification elements after initial feedback
 ----------------------
 
 
+HERO SECTION: 
+
+
+Adjust the modern fitness website hero section with a strong 3D visual impact immediately when the page loads.
+
+The main focus of the hero section should be a smooth 3D body transformation animation. (you can use the space in the hero section)
+
+Concept:
+A generic human 3D avatar starts in an overweight / fat body shape.
+The avatar then passes through a futuristic scanning portal or transformation ring effect.
+After passing through the portal, the same avatar smoothly transforms into a fit, muscular version.
+
+Important requirements:
+- Keep the 3D model simple and neutral
+- No race-specific, skin-specific, or detailed facial features
+- Use a gray clay-style material or matte monochrome material
+- Minimal colors, mostly grayscale
+- Clean and modern look
+- Smooth cinematic animation
+- The transformation should feel premium and inspiring
+- The effect should immediately communicate fitness transformation
+
+Animation idea:
+1. Initial idle pose (overweight avatar)
+2. Circular scanning portal appears
+3. Light scan moves vertically through the body
+4. Portal glow expands
+5. Morph animation transitions body from fat to muscular
+6. Final confident fit pose
+
+Technical stack:
+- HTML / CSS / JavaScript
+- Three.js for 3D rendering
+- Use GLTF / GLB avatar models
+- Use GSAP for smooth timeline animation
+- Use morph targets / blend shapes if possible
+- Fallback option: crossfade between two meshes
+
+Important:
+The 3D part should only be used in the hero section avatar experience.
+The rest of the website remains normal front-end HTML/CSS sections.
+
+The result should be lightweight, easy to tweak, and based on free assets.
+
+Preferred free asset sources:
+- Sketchfab free models
+- Ready Player Me
+- Mixamo
+- Poly Pizza
+- CGTrader free
+
+Deliverables:
+- Working Three.js hero section code
+- Animation logic
+- Instructions for where to download the 3D model
+- Required file formats
+- Folder structure
+- Easy placeholders for swapping future models
+
+-*-------------------------------GYM----------------
+
+
+Create a premium Coaches Page / Personal Training Page for a modern gym website that matches the existing website theme and design system.
+
+The page should feel high-end, professional, and user-friendly, making visitors immediately trust the coaches and feel confident booking sessions.
+
+Main Goal
+
+The main goal of this page is to help users:
+
+explore available coaches
+filter coaches by specialization
+understand what each coach offers
+book private coaching sessions
+clearly distinguish coaching services from gym membership subscriptions
+
+This page is focused on private coaching services, not general gym plans.
+
+Filtering System (Very Important)
+
+Add an advanced filter section at the top of the page.
+
+Users should be able to filter coaches by specialization, including:
+
+Bodybuilding / Weight Training → highest priority, include multiple coaches
+Kickboxing / Boxing → fewer coaches
+Gymnastics / Flexibility / Mobility → 1–2 coaches
+
+The bodybuilding category should have the most coaches because this is the main business focus.
+
+Additional filters should include:
+
+Online coaching available
+Home session available
+On-site only
+Experience level
+beginner
+intermediate
+advanced
+Session type
+private 1-on-1
+group session
+Gender preference (optional)
+Price range
+Availability / next free slot
+Coach Cards (Main Section)
+
+Create beautiful carousel-style coach cards that are visually appealing and modern.
+
+Each card should include:
+
+coach photo
+full name
+specialization
+short bio / tagline
+years of experience
+rating / reviews
+number of completed sessions
+session price
+badges like:
+online
+home visit
+on-site
+languages spoken
+next available session
+CTA button:
+“Book Session”
+
+Optional extra buttons:
+
+View Profile
+Message Coach
+See Schedule
+
+The cards should feel premium and aligned with the website theme.
+
+Coach Profile Experience
+
+When a user clicks a coach card, create a detailed coach profile experience.
+
+I need your recommendation for the best UX:
+
+Option A — Modal / Popup
+
+A floating modal opens above the page for quick details.
+
+Best for:
+
+fast browsing
+quick booking
+smooth UX
+Option B — Dedicated Coach Page
+
+A separate full coach profile page opens.
+
+This page should include:
+
+larger profile photo
+about me section
+specialties
+transformation results
+gallery / progress photos
+certifications
+coaching philosophy
+customer reviews
+available time slots
+booking system
+session packages
+
+Please recommend which option gives the best user satisfaction.
+
+Important Business Logic
+
+Clearly separate:
+
+Gym Membership Plans
+
+These are subscriptions for:
+
+gym access
+monthly plans
+premium memberships
+Private Coaching
+
+This is a completely separate system for:
+
+personal trainer sessions
+one-on-one coaching
+specialized training
+learning specific skills
+personalized fitness programs
+
+Users must clearly understand the difference.
+
+Important Coach Information
+
+Each coach profile should clearly show:
+
+does the coach offer home sessions
+does the coach offer online coaching
+does the coach work only inside the gym
+session duration
+session frequency recommendations
+transformation plans
+nutrition guidance availability
+personal follow-up support
+Goal for User Experience
+
+The page should make the user feel:
+
+trust
+professionalism
+clarity
+excitement to book
+
+The visitor should leave the page fully understanding:
+
+who the coaches are
+what they specialize in
+how coaching works
+how it differs from gym plans
+how to book easily
+
+The final result should feel like a premium fitness platform / personal trainer marketplace.
